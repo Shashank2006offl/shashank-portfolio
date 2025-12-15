@@ -1,0 +1,633 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 190 100% 50%;
+    --primary-foreground: 222 47% 5%;
+
+    --secondary: 260 100% 65%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 190 100% 50%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(190 100% 50%), hsl(260 100% 65%));
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 5%) 0%, hsl(222 47% 8%) 50%, hsl(222 47% 5%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 10%), hsl(222 47% 6%));
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(190 100% 50% / 0.15), transparent 70%);
+
+    --shadow-glow: 0 0 60px hsl(190 100% 50% / 0.3);
+    --shadow-card: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+    --shadow-hover: 0 35px 60px -15px hsl(190 100% 50% / 0.3);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-cyber: 'Orbitron', 'Rajdhani', monospace;
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-display);
+    cursor: none;
+    opacity: 0;
+    animation: fadeInBody 0.3s ease-in forwards;
+    animation-delay: 0.1s;
+  }
+
+  /* Show default cursor on mobile/touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    body {
+      cursor: auto !important;
+    }
+
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    [role="button"] {
+      cursor: pointer !important;
+    }
+  }
+
+  @keyframes fadeInBody {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Smooth section transitions */
+  section {
+    position: relative;
+    will-change: transform, opacity;
+  }
+
+  section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  section:hover::before {
+    opacity: 1;
+  }
+
+  /* Show default cursor on interactive elements */
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"] {
+    cursor: pointer !important;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .glass {
+    @apply backdrop-blur-xl bg-card/50 border border-border/50;
+  }
+
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: hsl(var(--primary));
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes particle {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes cursor-pulse {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s ease-out forwards;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.cursor-ring {
+  animation: cursor-pulse 2s ease-in-out infinite;
+}
+
+/* Custom cursor - ensure it's always on top */
+.cursor-ring {
+  animation: cursor-pulse 2s ease-in-out infinite;
+  position: fixed !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+}
+
+/* Stagger animation delays */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-800 {
+  animation-delay: 800ms;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  filter: blur(5px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+}
+
+/* Parallax effect for sections */
+@media (prefers-reduced-motion: no-preference) {
+  section {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Section focus effect when navigating */
+.section-focus {
+  animation: sectionPulse 2s ease-out;
+}
+
+@keyframes sectionPulse {
+  0% {
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 60px 20px hsl(var(--primary) / 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+  }
+}
+
+/* Page transition effect */
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+main>section {
+  animation: pageSlideIn 0.8s ease-out backwards;
+}
+
+main>section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+main>section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+main>section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+main>section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+main>section:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+main>section:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+
+  /* Reduce animation complexity on mobile */
+  .reveal {
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.6s ease-out;
+  }
+
+  /* Faster animations for better performance */
+  main>section {
+    animation-duration: 0.5s;
+  }
+
+  /* Reduce blur effects */
+  .reveal {
+    filter: blur(2px);
+  }
+
+  /* Optimize scroll behavior */
+  html {
+    scroll-padding-top: 60px;
+  }
+
+  /* Better touch targets */
+  a,
+  button {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Reduce particle count on mobile */
+  .particle-bg>div:nth-child(n+15) {
+    display: none;
+  }
+
+  /* Hide custom cursor elements on mobile */
+  .cursor-ring {
+    display: none !important;
+  }
+
+  /* Center all sections properly */
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Ensure grids center on mobile */
+  .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .grid>* {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 640px) {
+
+  /* Even simpler animations for small screens */
+  .reveal {
+    filter: none;
+    transform: translateY(20px);
+  }
+
+  main>section {
+    animation: simpleFadeIn 0.4s ease-out backwards;
+  }
+
+  @keyframes simpleFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Consistent section padding on mobile */
+  section {
+    padding: 80px 16px !important;
+    margin: 0 !important;
+  }
+
+  /* Override any specific section spacing */
+  section+section {
+    margin-top: 0 !important;
+    padding-top: 80px !important;
+  }
+
+  /* Specifically fix roadmap to publications spacing */
+  #roadmap,
+  section:has(#roadmap) {
+    padding-bottom: 80px !important;
+    margin-bottom: 0 !important;
+  }
+
+  #publications,
+  section:has(#publications) {
+    padding-top: 80px !important;
+    margin-top: 0 !important;
+  }
+
+  /* Remove any extra spacing between roadmap and publications */
+  #roadmap+#publications,
+  #roadmap+section,
+  section:has(#roadmap)+section {
+    margin-top: 0 !important;
+    padding-top: 80px !important;
+  }
+
+  /* Optimize text sizes */
+  h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+  }
+
+  /* Better spacing */
+  .space-y-8>*+* {
+    margin-top: 1.5rem !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
