@@ -39,7 +39,7 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} className="py-32 px-6 relative">
+    <section id="skills" ref={sectionRef} className="pt-24 pb-32 px-6 relative">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 

@@ -108,6 +108,74 @@
   /* Smooth section transitions */
   section {
     position: relative;
+    padding-top: 2rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* First section after hero should have less top padding */
+  section:first-of-type {
+    padding-top: 1rem !important;
+  }
+
+  /* Remove any default margins between sections */
+  section+section {
+    margin-top: 0 !important;
+  }
+
+  /* Override ANY Tailwind padding classes on sections - force override */
+  section.py-32,
+  section.py-20,
+  section[class*="py-"],
+  section[class*="pt-"] {
+    padding-top: 1rem !important;
+    padding-bottom: 5rem !important;
+    /* More space between sections */
+  }
+
+  section:first-of-type.py-32,
+  section:first-of-type.py-20,
+  section:first-of-type[class*="py-"],
+  section:first-of-type[class*="pt-"] {
+    padding-top: 0.5rem !important;
+  }
+
+  /* Target specific section IDs to ensure override */
+  #skills,
+  #projects,
+  #publications,
+  #contact,
+  #about,
+  #roadmap {
+    padding-top: 1rem !important;
+    padding-bottom: 5rem !important;
+    /* More space between sections */
+  }
+
+  #skills {
+    padding-top: 0.5rem !important;
+  }
+
+  /* Force Skills section to have minimal top spacing */
+  #skills,
+  section:has(#skills),
+  [id*="skill" i] {
+    padding-top: 1rem !important;
+    margin-top: 0 !important;
+  }
+
+  /* Override any container padding in skills section */
+  #skills .container,
+  section:has(#skills) .container {
+    padding-top: 0 !important;
+  }
+
+  /* Remove any flex centering that might be pushing content down */
+  #skills,
+  section:has(#skills) {
+    display: block !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    min-height: auto !important;
   }
 
   ::selection {
@@ -470,7 +538,7 @@ main>section:nth-child(6) {
 
   /* Optimize scroll behavior */
   html {
-    scroll-padding-top: 60px;
+    scroll-padding-top: 80px;
   }
 
   /* Better touch targets */
@@ -498,6 +566,12 @@ main>section:nth-child(6) {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  section:first-of-type {
+    padding-top: 2rem;
   }
 
   section .container {
@@ -547,26 +621,30 @@ main>section:nth-child(6) {
 
   /* Consistent section padding on mobile */
   section {
-    padding: 80px 16px !important;
+    padding: 3rem 1rem !important;
     margin: 0 !important;
+  }
+
+  section:first-of-type {
+    padding-top: 2rem !important;
   }
 
   /* Override any specific section spacing */
   section+section {
     margin-top: 0 !important;
-    padding-top: 80px !important;
+    padding-top: 3rem !important;
   }
 
   /* Specifically fix roadmap to publications spacing */
   #roadmap,
   section:has(#roadmap) {
-    padding-bottom: 80px !important;
+    padding-bottom: 3rem !important;
     margin-bottom: 0 !important;
   }
 
   #publications,
   section:has(#publications) {
-    padding-top: 80px !important;
+    padding-top: 3rem !important;
     margin-top: 0 !important;
   }
 
@@ -575,7 +653,7 @@ main>section:nth-child(6) {
   #roadmap+section,
   section:has(#roadmap)+section {
     margin-top: 0 !important;
-    padding-top: 80px !important;
+    padding-top: 3rem !important;
   }
 
   /* Optimize text sizes */

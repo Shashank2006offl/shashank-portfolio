@@ -16,10 +16,13 @@ const useSmoothScroll = () => {
             const targetElement = document.querySelector(href);
             if (!targetElement) return;
 
-            // Use native smooth scroll - much faster and hardware accelerated
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
+            // Use native smooth scroll with custom offset
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - 100;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
             });
 
             // Optional: Add focus effect after scroll
