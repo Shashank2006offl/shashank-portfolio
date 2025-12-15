@@ -262,16 +262,18 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📸 Screenshots
 
 ### Desktop View
-![Desktop Screenshot](link-to-screenshot)
+
+<img width="1860" height="817" alt="{0954FE9D-9F19-4420-B177-6E7366CF8387}" src="https://github.com/user-attachments/assets/093ab46f-8494-413d-aa01-d825cf708a25" />
+<img width="1918" height="868" alt="{FFBB494A-4EAA-4556-AD68-79CB8034ACA6}" src="https://github.com/user-attachments/assets/bca642f6-2f1e-4108-a6e1-8ad2269bcbe2" />
+
 
 ### Mobile View
-![Mobile Screenshot](link-to-screenshot)
 
-### Dark Theme
-![Dark Theme Screenshot](link-to-screenshot)
+<img width="402" height="754" alt="{7B372CB0-E6D8-4A52-8ADA-52E836CACA5C}" src="https://github.com/user-attachments/assets/4e50628b-5632-47d7-b402-bbb14d60f8a5" />
+<img width="418" height="753" alt="{91DB0038-844A-4491-93B5-8CBEE22CCA6E}" src="https://github.com/user-attachments/assets/a382e79d-02ff-40e0-9973-5b30ab51f475" />
+
 
 ---
 
 ⭐ **If you found this project helpful, please give it a star!** ⭐
 
-Made with ❤️ and lots of ☕
