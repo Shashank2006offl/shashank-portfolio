@@ -71,10 +71,22 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-display);
-    cursor: none;
-    opacity: 0;
-    animation: fadeInBody 0.3s ease-in forwards;
-    animation-delay: 0.1s;
+  }
+
+  /* Hide default cursor on desktop, show on mobile */
+  @media (hover: hover) and (pointer: fine) {
+    body {
+      cursor: none;
+    }
+
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    [role="button"] {
+      cursor: none !important;
+    }
   }
 
   /* Show default cursor on mobile/touch devices */
@@ -93,42 +105,9 @@
     }
   }
 
-  @keyframes fadeInBody {
-    to {
-      opacity: 1;
-    }
-  }
-
   /* Smooth section transitions */
   section {
     position: relative;
-    will-change: transform, opacity;
-  }
-
-  section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent);
-    opacity: 0;
-    transition: opacity 0.6s ease;
-  }
-
-  section:hover::before {
-    opacity: 1;
-  }
-
-  /* Show default cursor on interactive elements */
-  a,
-  button,
-  input,
-  textarea,
-  select,
-  [role="button"] {
-    cursor: pointer !important;
   }
 
   ::selection {
@@ -144,7 +123,7 @@
   }
 
   .glass {
-    @apply backdrop-blur-xl bg-card/50 border border-border/50;
+    @apply bg-card/50 border border-border/50;
   }
 
   .glow {
@@ -403,11 +382,11 @@
   filter: blur(0px);
 }
 
-/* Parallax effect for sections */
+/* Parallax effect for sections - disabled for performance */
 @media (prefers-reduced-motion: no-preference) {
-  section {
+  /* section {
     transform-style: preserve-3d;
-  }
+  } */
 }
 
 /* Section focus effect when navigating */
