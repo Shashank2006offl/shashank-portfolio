@@ -7,6 +7,15 @@ A stunning, interactive portfolio website built with React, TypeScript, and cutt
 ![Vite](https://img.shields.io/badge/Vite-5.4.19-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
+A modern, interactive personal portfolio showcasing my work in **AI & Data Science** along with **frontend engineering projects**.
+
+## 🔗 Live Website
+👉 https://shashank-portfolio-c46v.vercel.app/
+
+## 💻 GitHub Repository
+👉 https://github.com/Shashank2006offl/shashank-portfolio
+
+
 ## ✨ Features
 
 - 🎨 **Modern UI/UX Design** - Sleek, cyberpunk-inspired interface with glassmorphism effects
