@@ -4,20 +4,61 @@ import GlobeScene from './GlobeScene';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
-  const fullText = 'AI & Data Science';
+  const [showCursor, setShowCursor] = useState(true);
+
+  const fullText = 'AI & DATA SCIENCE';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*';
 
   useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setDisplayText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 100);
+    // Delay start after welcome screen
+    const startDelay = setTimeout(() => {
+      let frame = 0;
+      const fps = 60; // 60 frames per second for smooth animation
+      const revealsPerSecond = 15; // Reveal 15 characters per second
+      const framesPerReveal = fps / revealsPerSecond; // ~4 frames per character reveal
 
-    return () => clearInterval(timer);
+      const interval = setInterval(() => {
+        const revealedCount = Math.floor(frame / framesPerReveal);
+
+        setDisplayText(
+          fullText
+            .split('')
+            .map((letter, index) => {
+              if (letter === ' ') return ' ';
+
+              if (index < revealedCount) {
+                // Character is revealed
+                return fullText[index];
+              } else {
+                // Show rapidly cycling random characters
+                return characters[Math.floor(Math.random() * characters.length)];
+              }
+            })
+            .join('')
+        );
+
+        frame++;
+
+        // Stop when all characters are revealed
+        if (revealedCount >= fullText.replace(/ /g, '').length) {
+          clearInterval(interval);
+          setDisplayText(fullText);
+        }
+      }, 1000 / fps); // Run at 60fps
+
+      return () => clearInterval(interval);
+    }, 6000);
+
+    return () => clearTimeout(startDelay);
+  }, []);
+
+  // Cursor blink effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+
+    return () => clearInterval(cursorInterval);
   }, []);
 
   return (
@@ -48,8 +89,13 @@ const HeroSection = () => {
           {/* Typing Effect Title */}
           <div className="h-12 md:h-14 flex items-center justify-center lg:justify-start relative z-10">
             <span className="text-2xl md:text-3xl font-bold text-muted-foreground tracking-wider uppercase" style={{ fontFamily: '"Orbitron", "Rajdhani", monospace', letterSpacing: '0.15em' }}>
-              {displayText}
-              <span className="inline-block w-0.5 h-8 bg-primary ml-1 animate-pulse" />
+              <span className="inline-block min-w-[280px] sm:min-w-[400px] text-left">
+                {displayText}
+                <span
+                  className={`inline-block w-0.5 h-8 bg-primary ml-2 transition-opacity duration-100 ${showCursor ? 'opacity-100' : 'opacity-0'
+                    }`}
+                />
+              </span>
             </span>
           </div>
 
