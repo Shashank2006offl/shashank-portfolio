@@ -92,7 +92,7 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 dark:opacity-30 mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 mix-blend-screen"
           style={{ backgroundImage: `url(${bgSpringer})` }}
         />
         {/* Darkening Overlay so text remains readable */}
@@ -137,7 +137,7 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 dark:opacity-30 mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 mix-blend-screen"
           style={{ backgroundImage: `url(${bgOther})` }}
         />
         {/* Darkening Overlay */}
@@ -173,7 +173,7 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 dark:opacity-30 mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 mix-blend-screen"
           style={{ backgroundImage: `url(${bgReview})` }}
         />
         {/* Darkening Overlay */}
