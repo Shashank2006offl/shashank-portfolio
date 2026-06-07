@@ -92,15 +92,15 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-100"
+          className="absolute inset-0 bg-cover bg-center opacity-100"
           style={{ backgroundImage: `url(${bgSpringer})` }}
         />
         <div className="absolute inset-0 bg-background/0 z-0" />
 
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 items-center relative z-10">
-          <div className="lg:w-1/3 text-center lg:text-right bg-background/80 backdrop-blur-md p-6 rounded-2xl border border-border/40 shadow-lg">
+          <div className="lg:w-1/3 text-center lg:text-right">
             <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}><span className="text-foreground dark:text-yellow-500">Springer</span> &amp;<br /><span className="text-primary">Elsevier</span></h1>
-            <p className="text-muted-foreground text-lg">Top-tier peer-reviewed journals focusing on AI, HVAC scheduling, and Predictive Maintenance.</p>
+            <p className="text-zinc-950 dark:text-zinc-50 text-lg font-semibold">Top-tier peer-reviewed journals focusing on AI, HVAC scheduling, and Predictive Maintenance.</p>
           </div>
 
           <div className="lg:w-2/3 space-y-6 w-full">
@@ -136,15 +136,15 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-100 mix-blend-multiply dark:mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center opacity-100"
           style={{ backgroundImage: `url(${bgOther})` }}
         />
         <div className="absolute inset-0 bg-background/0 z-0" />
 
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row-reverse gap-12 items-center relative z-10">
-          <div className="lg:w-1/3 text-center lg:text-left bg-background/80 backdrop-blur-md p-6 rounded-2xl border border-border/40 shadow-lg">
+          <div className="lg:w-1/3 text-center lg:text-left">
             <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}>Other<br /><span className="text-secondary">Journals</span></h1>
-            <p className="text-muted-foreground text-lg">Publications focusing on applied AI in education and building optimization.</p>
+            <p className="text-zinc-950 dark:text-zinc-50 text-lg font-semibold">Publications focusing on applied AI in education and building optimization.</p>
           </div>
 
           <div className="lg:w-2/3 space-y-6 w-full">
@@ -171,15 +171,15 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-100 mix-blend-multiply dark:mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center opacity-100"
           style={{ backgroundImage: `url(${bgReview})` }}
         />
         <div className="absolute inset-0 bg-background/0 z-0" />
 
         <div className="container max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
-          <div className="mb-12 bg-background/80 backdrop-blur-md p-6 rounded-2xl border border-border/40 shadow-lg max-w-xl mx-auto">
+          <div className="mb-12 text-center max-w-xl mx-auto">
             <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}>Under<br /><span className="text-yellow-500">Review</span></h1>
-            <p className="text-muted-foreground text-lg">Upcoming research works currently in preparation or under peer review.</p>
+            <p className="text-zinc-950 dark:text-zinc-50 text-lg font-semibold">Upcoming research works currently in preparation or under peer review.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
