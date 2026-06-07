@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 
-const COLS = 64;
-const ROWS = 20;
-const DOT  = 6;
+const COLS = 48;
+const ROWS = 16;
+const DOT  = 5;
 const GAP  = 3;
 
 const FRAMES = ['SHASHANK', 'AI · ML', 'B.TECH', 'AI DS', 'DATA'];
@@ -27,8 +27,8 @@ const DotMatrix = () => {
       ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, COLS, ROWS);
 
-      // Pick font size that fits — smaller for longer strings to avoid antialiasing bleed
-      const fontSize = text.length >= 7 ? 6 : text.length >= 5 ? 8 : 11;
+      // Pick font size that fits
+      const fontSize = text.length >= 7 ? 5 : text.length >= 5 ? 7 : 10;
       ctx.font = `bold ${fontSize}px monospace`;
       ctx.fillStyle = '#fff';
       ctx.textAlign    = 'center';
