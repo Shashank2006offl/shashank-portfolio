@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { FileText, Clock, CheckCircle, ExternalLink } from 'lucide-react';
+import { useRef, useEffect } from 'react';
+import { Clock, ExternalLink } from 'lucide-react';
 
 import bgSpringer from '../assets/research/vanya-smythe-CH7kRmyBQ4I-unsplash.webp';
 import bgOther from '../assets/research/annie-spratt-U_Ff4ohzLSw-unsplash.jpg';
@@ -16,8 +16,8 @@ const publications = {
       highlights: [
         'Developed a contrastive Siamese CNN framework for feature learning',
         'Introduced Entropy Divergence Rate (EDR) for detecting anomalies',
-        'Achieved an F1-score of 0.93 with a 28% improvement in early fault detection'
-      ]
+        'Achieved an F1-score of 0.93 with a 28% improvement in early fault detection',
+      ],
     },
     {
       authors: 'Rajagopal M., Shashank R.',
@@ -64,15 +64,76 @@ const publications = {
   ],
 };
 
+// ── GPU-composited parallax hook ─────────────────────────────────────────────
+// translate3d drives movement on the compositor thread — zero main-thread
+// repaints (unlike background-attachment:fixed which repaints everything).
+function useParallax(
+  sectionRef: React.RefObject<HTMLDivElement | null>,
+  bgRef: React.RefObject<HTMLDivElement | null>,
+  speed = 0.25
+) {
+  useEffect(() => {
+    let rafId: number;
+
+    const tick = () => {
+      const section = sectionRef.current;
+      const bg = bgRef.current;
+      if (!section || !bg) return;
+      const offset = section.getBoundingClientRect().top * speed;
+      bg.style.transform = `translate3d(0,${offset}px,0)`;
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(tick);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    tick();
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, [sectionRef, bgRef, speed]);
+}
+
+// Detect dark mode for opacity switching
+function isDark() {
+  return document.documentElement.classList.contains('dark');
+}
+
 const PublicationsSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
+  const slide1Ref = useRef<HTMLDivElement>(null);
+  const slide2Ref = useRef<HTMLDivElement>(null);
+  const slide3Ref = useRef<HTMLDivElement>(null);
+  const bg1Ref = useRef<HTMLDivElement>(null);
+  const bg2Ref = useRef<HTMLDivElement>(null);
+  const bg3Ref = useRef<HTMLDivElement>(null);
+
+  useParallax(slide1Ref, bg1Ref, 0.25);
+  useParallax(slide2Ref, bg2Ref, 0.25);
+  useParallax(slide3Ref, bg3Ref, 0.25);
+
+  // Sync opacity based on dark/light mode
+  useEffect(() => {
+    const bgs = [bg1Ref, bg2Ref, bg3Ref];
+
+    const apply = () => {
+      const opacity = isDark() ? '0.3' : '1';
+      bgs.forEach(r => { if (r.current) r.current.style.opacity = opacity; });
+    };
+
+    apply();
+
+    const observer = new MutationObserver(apply);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section
-      id="publications"
-      ref={sectionRef}
-      className="w-full bg-background"
-    >
+    <section id="publications" className="w-full bg-background">
 
       {/* Introduction Header */}
       <div className="flex flex-col justify-center text-center pt-12 pb-4 px-4 relative">
@@ -89,18 +150,23 @@ const PublicationsSection = () => {
       </div>
 
       {/* Slide 1: Springer & Elsevier */}
-      <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5 overflow-hidden">
-        {/* background-attachment: fixed parallax */}
-        <div 
-          className="absolute inset-0 bg-fixed bg-cover bg-center opacity-100"
-          style={{ backgroundImage: `url(${bgSpringer})` }}
+      <div ref={slide1Ref} className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5 overflow-hidden">
+        <div
+          ref={bg1Ref}
+          className="absolute inset-[-30%] bg-cover bg-center"
+          style={{ backgroundImage: `url(${bgSpringer})`, willChange: 'transform' }}
         />
-        <div className="absolute inset-0 bg-background/0 z-0" />
+        <div className="absolute inset-0 z-0" />
 
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 items-center relative z-10">
           <div className="lg:w-1/3 text-center lg:text-right">
-            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}><span className="text-white">Springer &amp;</span><br /><span className="text-primary">Elsevier</span></h1>
-            <p className="text-zinc-200 text-lg font-semibold" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.9)' }}>Top-tier peer-reviewed journals focusing on AI, HVAC scheduling, and Predictive Maintenance.</p>
+            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+              <span className="text-white">Springer &amp;</span><br />
+              <span className="text-primary">Elsevier</span>
+            </h1>
+            <p className="text-zinc-200 text-lg font-semibold" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9)' }}>
+              Top-tier peer-reviewed journals focusing on AI, HVAC scheduling, and Predictive Maintenance.
+            </p>
           </div>
 
           <div className="lg:w-2/3 space-y-6 w-full">
@@ -133,18 +199,23 @@ const PublicationsSection = () => {
       </div>
 
       {/* Slide 2: Other Journals */}
-      <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5 overflow-hidden">
-        {/* background-attachment: fixed parallax */}
-        <div 
-          className="absolute inset-0 bg-fixed bg-cover bg-center opacity-100"
-          style={{ backgroundImage: `url(${bgOther})` }}
+      <div ref={slide2Ref} className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5 overflow-hidden">
+        <div
+          ref={bg2Ref}
+          className="absolute inset-[-30%] bg-cover bg-center"
+          style={{ backgroundImage: `url(${bgOther})`, willChange: 'transform' }}
         />
-        <div className="absolute inset-0 bg-background/0 z-0" />
+        <div className="absolute inset-0 z-0" />
 
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row-reverse gap-12 items-center relative z-10">
           <div className="lg:w-1/3 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}><span className="text-white">Other</span><br /><span className="text-secondary">Journals</span></h1>
-            <p className="text-zinc-200 text-lg font-semibold" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.9)' }}>Publications focusing on applied AI in education and building optimization.</p>
+            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+              <span className="text-white">Other</span><br />
+              <span className="text-secondary">Journals</span>
+            </h1>
+            <p className="text-zinc-200 text-lg font-semibold" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9)' }}>
+              Publications focusing on applied AI in education and building optimization.
+            </p>
           </div>
 
           <div className="lg:w-2/3 space-y-6 w-full">
@@ -168,18 +239,23 @@ const PublicationsSection = () => {
       </div>
 
       {/* Slide 3: Under Review */}
-      <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 overflow-hidden">
-        {/* background-attachment: fixed parallax */}
-        <div 
-          className="absolute inset-0 bg-fixed bg-cover bg-center opacity-100"
-          style={{ backgroundImage: `url(${bgReview})` }}
+      <div ref={slide3Ref} className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 overflow-hidden">
+        <div
+          ref={bg3Ref}
+          className="absolute inset-[-30%] bg-cover bg-center"
+          style={{ backgroundImage: `url(${bgReview})`, willChange: 'transform' }}
         />
-        <div className="absolute inset-0 bg-background/0 z-0" />
+        <div className="absolute inset-0 z-0" />
 
         <div className="container max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
-          <div className="mb-12 text-center max-w-xl mx-auto">
-            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}><span className="text-white">Under</span><br /><span className="text-yellow-500">Review</span></h1>
-            <p className="text-zinc-200 text-lg font-semibold" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.9)' }}>Upcoming research works currently in preparation or under peer review.</p>
+          <div className="mb-12 max-w-xl mx-auto">
+            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+              <span className="text-white">Under</span><br />
+              <span className="text-yellow-500">Review</span>
+            </h1>
+            <p className="text-zinc-200 text-lg font-semibold" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9)' }}>
+              Upcoming research works currently in preparation or under peer review.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
