@@ -41,7 +41,8 @@ const Index = () => {
       root.classList.remove('dark');
       setIsDarkMode(false);
     } else {
-      // Switching from light to dark: show the code-typing LoadingScreen
+      // Switching from light to dark: scroll to top, then show the code-typing LoadingScreen
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       setIsLoading(true);
       root.classList.add('dark');
       setIsDarkMode(true);

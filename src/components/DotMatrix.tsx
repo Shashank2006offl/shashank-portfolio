@@ -27,8 +27,8 @@ const DotMatrix = () => {
       ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, COLS, ROWS);
 
-      // Pick font size that fits
-      const fontSize = text.length > 6 ? 8 : 11;
+      // Pick font size that fits — smaller for longer strings to avoid antialiasing bleed
+      const fontSize = text.length >= 7 ? 6 : text.length >= 5 ? 8 : 11;
       ctx.font = `bold ${fontSize}px monospace`;
       ctx.fillStyle = '#fff';
       ctx.textAlign    = 'center';
@@ -40,7 +40,7 @@ const DotMatrix = () => {
       dotRefs.current.forEach((dot, i) => {
         if (!dot) return;
         const o   = i * 4;
-        const on  = (data[o] + data[o + 1] + data[o + 2]) / 3 > 60;
+        const on  = (data[o] + data[o + 1] + data[o + 2]) / 3 > 100;
         dot.style.background = on
           ? 'hsl(var(--primary))'
           : 'rgba(255,255,255,0.07)';
