@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 
 const COLS = 48;
 const ROWS = 16;
-const DOT  = 5;
-const GAP  = 3;
+const DOT  = 4;
+const GAP  = 2;
 
 const FRAMES = ['SHASHANK', 'AI · ML', 'B.TECH', 'AI DS', 'DATA'];
 
