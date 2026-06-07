@@ -3,7 +3,7 @@ import { FileText, Clock, CheckCircle, ExternalLink } from 'lucide-react';
 
 import bgSpringer from '../assets/research/vanya-smythe-CH7kRmyBQ4I-unsplash.webp';
 import bgOther from '../assets/research/annie-spratt-U_Ff4ohzLSw-unsplash.jpg';
-import bgReview from '../assets/research/bg-review.png';
+import bgReview from '../assets/research/igor-omilaev-eGGFZ5X2LnA-unsplash.jpg';
 
 const publications = {
   springerElsevier: [
@@ -178,8 +178,8 @@ const PublicationsSection = () => {
 
         <div className="container max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
           <div className="mb-12 text-center max-w-xl mx-auto">
-            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}>Under<br /><span className="text-yellow-500">Review</span></h1>
-            <p className="text-zinc-950 dark:text-zinc-50 text-lg font-semibold">Upcoming research works currently in preparation or under peer review.</p>
+            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}><span className="text-white">Under</span><br /><span className="text-yellow-500">Review</span></h1>
+            <p className="text-zinc-200 text-lg font-semibold" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.9)' }}>Upcoming research works currently in preparation or under peer review.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
