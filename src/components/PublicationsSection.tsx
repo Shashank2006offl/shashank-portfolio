@@ -92,11 +92,11 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-30 mix-blend-multiply dark:mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 dark:opacity-30 mix-blend-screen"
           style={{ backgroundImage: `url(${bgSpringer})` }}
         />
-        {/* Darkening Overlay so text remains readable - 0% opacity in light mode */}
-        <div className="absolute inset-0 bg-background/0 dark:bg-background/80 z-0" />
+        {/* Darkening Overlay so text remains readable */}
+        <div className="absolute inset-0 bg-background/80 z-0" />
         
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 items-center relative z-10">
           <div className="lg:w-1/3 text-center lg:text-right">
@@ -137,11 +137,11 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-30 mix-blend-multiply dark:mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 dark:opacity-30 mix-blend-screen"
           style={{ backgroundImage: `url(${bgOther})` }}
         />
-        {/* Darkening Overlay - 0% opacity in light mode */}
-        <div className="absolute inset-0 bg-background/0 dark:bg-background/80 z-0" />
+        {/* Darkening Overlay */}
+        <div className="absolute inset-0 bg-background/80 z-0" />
         
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row-reverse gap-12 items-center relative z-10">
           <div className="lg:w-1/3 text-center lg:text-left">
@@ -173,11 +173,11 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-30 mix-blend-multiply dark:mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 dark:opacity-30 mix-blend-screen"
           style={{ backgroundImage: `url(${bgReview})` }}
         />
-        {/* Darkening Overlay - 0% opacity in light mode */}
-        <div className="absolute inset-0 bg-background/0 dark:bg-background/80 z-0" />
+        {/* Darkening Overlay */}
+        <div className="absolute inset-0 bg-background/80 z-0" />
         
         <div className="container max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
           <div className="mb-12">
