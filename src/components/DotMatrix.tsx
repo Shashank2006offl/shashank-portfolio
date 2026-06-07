@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
 
-const COLS = 48;
-const ROWS = 16;
-const DOT  = 5;
+const COLS = 64;
+const ROWS = 20;
+const DOT  = 6;
 const GAP  = 3;
 
-const FRAMES = ['SHASHANK', 'AI · ML', 'GNN', 'ViT', 'DATA'];
+const FRAMES = ['SHASHANK', 'AI · ML', 'B.TECH', 'AI DS', 'DATA'];
 
 const DotMatrix = () => {
   // Pre-create stable dot refs array
@@ -28,7 +28,7 @@ const DotMatrix = () => {
       ctx.fillRect(0, 0, COLS, ROWS);
 
       // Pick font size that fits
-      const fontSize = text.length > 5 ? 7 : 10;
+      const fontSize = text.length > 6 ? 8 : 11;
       ctx.font = `bold ${fontSize}px monospace`;
       ctx.fillStyle = '#fff';
       ctx.textAlign    = 'center';
