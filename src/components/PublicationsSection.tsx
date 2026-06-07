@@ -89,10 +89,10 @@ const PublicationsSection = () => {
       </div>
 
       {/* Slide 1: Springer & Elsevier */}
-      <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
-        {/* Native CSS Fixed Parallax */}
+      <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5 overflow-hidden">
+        {/* CSS Scroll-Driven Parallax Background */}
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-100"
+          className="parallax-bg absolute inset-[-20%] bg-cover bg-center opacity-100"
           style={{ backgroundImage: `url(${bgSpringer})` }}
         />
         <div className="absolute inset-0 bg-background/0 z-0" />
@@ -133,10 +133,10 @@ const PublicationsSection = () => {
       </div>
 
       {/* Slide 2: Other Journals */}
-      <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
-        {/* Native CSS Fixed Parallax */}
+      <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5 overflow-hidden">
+        {/* CSS Scroll-Driven Parallax Background */}
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-100"
+          className="parallax-bg absolute inset-[-20%] bg-cover bg-center opacity-100"
           style={{ backgroundImage: `url(${bgOther})` }}
         />
         <div className="absolute inset-0 bg-background/0 z-0" />
@@ -168,10 +168,10 @@ const PublicationsSection = () => {
       </div>
 
       {/* Slide 3: Under Review */}
-      <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20">
-        {/* Native CSS Fixed Parallax */}
+      <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 overflow-hidden">
+        {/* CSS Scroll-Driven Parallax Background */}
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-100"
+          className="parallax-bg absolute inset-[-20%] bg-cover bg-center opacity-100"
           style={{ backgroundImage: `url(${bgReview})` }}
         />
         <div className="absolute inset-0 bg-background/0 z-0" />
