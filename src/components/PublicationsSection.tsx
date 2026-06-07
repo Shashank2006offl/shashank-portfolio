@@ -92,20 +92,20 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20 mix-blend-multiply dark:opacity-30 dark:mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-100"
           style={{ backgroundImage: `url(${bgSpringer})` }}
         />
         <div className="absolute inset-0 bg-background/0 z-0" />
 
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 items-center relative z-10">
-          <div className="lg:w-1/3 text-center lg:text-right">
+          <div className="lg:w-1/3 text-center lg:text-right bg-background/80 backdrop-blur-md p-6 rounded-2xl border border-border/40 shadow-lg">
             <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}><span className="text-foreground dark:text-yellow-500">Springer</span> &amp;<br /><span className="text-primary">Elsevier</span></h1>
             <p className="text-muted-foreground text-lg">Top-tier peer-reviewed journals focusing on AI, HVAC scheduling, and Predictive Maintenance.</p>
           </div>
 
           <div className="lg:w-2/3 space-y-6 w-full">
             {publications.springerElsevier.map((pub, index) => (
-              <div key={index} className="glass rounded-2xl p-6 sm:p-8 hover:border-primary/40 transition-all duration-300">
+              <div key={index} className="bg-background/90 backdrop-blur-md border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-primary/40 transition-all duration-300 shadow-lg">
                 <h4 className="font-bold text-xl mb-2 text-foreground">{pub.title}</h4>
                 <p className="text-muted-foreground mb-4">{pub.authors}</p>
                 {pub.highlights && (
@@ -136,20 +136,20 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20 mix-blend-multiply dark:opacity-30 dark:mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-100 mix-blend-multiply dark:mix-blend-screen"
           style={{ backgroundImage: `url(${bgOther})` }}
         />
         <div className="absolute inset-0 bg-background/0 z-0" />
 
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row-reverse gap-12 items-center relative z-10">
-          <div className="lg:w-1/3 text-center lg:text-left">
+          <div className="lg:w-1/3 text-center lg:text-left bg-background/80 backdrop-blur-md p-6 rounded-2xl border border-border/40 shadow-lg">
             <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}>Other<br /><span className="text-secondary">Journals</span></h1>
             <p className="text-muted-foreground text-lg">Publications focusing on applied AI in education and building optimization.</p>
           </div>
 
           <div className="lg:w-2/3 space-y-6 w-full">
             {publications.otherJournals.map((pub, index) => (
-              <div key={index} className="glass rounded-2xl p-6 sm:p-8 hover:border-secondary/40 transition-all duration-300">
+              <div key={index} className="bg-background/90 backdrop-blur-md border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-secondary/40 transition-all duration-300 shadow-lg">
                 <h4 className="font-bold text-xl mb-2 text-foreground">{pub.title}</h4>
                 <p className="text-muted-foreground mb-4">{pub.authors}</p>
                 <div className="flex flex-wrap gap-4 items-center text-sm">
@@ -171,20 +171,20 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20 mix-blend-multiply dark:opacity-30 dark:mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-100 mix-blend-multiply dark:mix-blend-screen"
           style={{ backgroundImage: `url(${bgReview})` }}
         />
         <div className="absolute inset-0 bg-background/0 z-0" />
 
         <div className="container max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
-          <div className="mb-12">
+          <div className="mb-12 bg-background/80 backdrop-blur-md p-6 rounded-2xl border border-border/40 shadow-lg max-w-xl mx-auto">
             <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}>Under<br /><span className="text-yellow-500">Review</span></h1>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto">Upcoming research works currently in preparation or under peer review.</p>
+            <p className="text-muted-foreground text-lg">Upcoming research works currently in preparation or under peer review.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             {publications.underReview.map((pub, index) => (
-              <div key={index} className="glass rounded-2xl p-6 sm:p-8 hover:border-yellow-500/40 transition-all duration-300 flex flex-col h-full justify-center text-left">
+              <div key={index} className="bg-background/90 backdrop-blur-md border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-yellow-500/40 transition-all duration-300 flex flex-col h-full justify-center text-left shadow-lg">
                 <div className="p-3 rounded-xl bg-yellow-500/10 text-yellow-500 w-max mb-4">
                   <Clock className="w-6 h-6" />
                 </div>
