@@ -38,7 +38,7 @@ const Navigation = ({ isDarkMode, toggleTheme }: NavigationProps) => {
           href="#"
           className="hover:scale-105 transition-transform"
         >
-          <img src="/favicon.png" alt="SR Logo" className="w-10 h-10 rounded-full shadow-sm" />
+          <img src="/favicon.png" alt="SR Logo" className="w-10 h-10 rounded-full shadow-sm border-2 border-transparent dark:border-white/20" />
         </a>
 
         {/* Desktop Navigation */}
