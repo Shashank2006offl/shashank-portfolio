@@ -46,7 +46,7 @@ const SvgScrollAnimation = () => {
       smoothTouch: true,
       touchMultiplier: 0.5,
       lerp: 0.6,
-    });
+    } as any);
 
     lenis.on('scroll', () => ScrollTrigger.update());
 
