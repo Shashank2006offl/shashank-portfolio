@@ -212,14 +212,13 @@ const ProjectsSection = () => {
                   }}
                 >
                   {/* Background Image & Overlay */}
-                  <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-background/40 group-hover:bg-background/10 transition-colors duration-500 z-10 pointer-events-none" />
+                  <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl">
                     <img 
                       src={project.img} 
                       alt={project.title}
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 pointer-events-none"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-20 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent pointer-events-none" />
                   </div>
 
                   {/* Content */}
