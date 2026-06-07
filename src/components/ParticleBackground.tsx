@@ -367,11 +367,7 @@ const ParticleBackground = () => {
         <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-secondary/10 to-transparent" />
         <div className="absolute left-0 top-1/3 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
 
-        {/* Corner accents */}
-        <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/20" />
-        <div className="absolute top-0 right-0 w-32 h-32 border-r-2 border-t-2 border-primary/20" />
-        <div className="absolute bottom-0 left-0 w-32 h-32 border-l-2 border-b-2 border-primary/20" />
-        <div className="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/20" />
+
       </div>
     </>
   );

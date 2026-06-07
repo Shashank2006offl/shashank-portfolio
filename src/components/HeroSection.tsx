@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { ArrowDown, Mail, Linkedin, Github } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
+import DotMatrix from './DotMatrix';
 import GlobeScene from './GlobeScene';
+import bgImage from './james-harrison-vpOeXr5wmR4-unsplash.jpg';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
@@ -10,12 +12,11 @@ const HeroSection = () => {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*';
 
   useEffect(() => {
-    // Delay start after welcome screen
     const startDelay = setTimeout(() => {
       let frame = 0;
-      const fps = 60; // 60 frames per second for smooth animation
-      const revealsPerSecond = 15; // Reveal 15 characters per second
-      const framesPerReveal = fps / revealsPerSecond; // ~4 frames per character reveal
+      const fps = 60;
+      const revealsPerSecond = 15;
+      const framesPerReveal = fps / revealsPerSecond;
 
       const interval = setInterval(() => {
         const revealedCount = Math.floor(frame / framesPerReveal);
@@ -25,26 +26,19 @@ const HeroSection = () => {
             .split('')
             .map((letter, index) => {
               if (letter === ' ') return ' ';
-
-              if (index < revealedCount) {
-                // Character is revealed
-                return fullText[index];
-              } else {
-                // Show rapidly cycling random characters
-                return characters[Math.floor(Math.random() * characters.length)];
-              }
+              if (index < revealedCount) return fullText[index];
+              return characters[Math.floor(Math.random() * characters.length)];
             })
             .join('')
         );
 
         frame++;
 
-        // Stop when all characters are revealed
         if (revealedCount >= fullText.replace(/ /g, '').length) {
           clearInterval(interval);
           setDisplayText(fullText);
         }
-      }, 1000 / fps); // Run at 60fps
+      }, 1000 / fps);
 
       return () => clearInterval(interval);
     }, 6000);
@@ -52,24 +46,40 @@ const HeroSection = () => {
     return () => clearTimeout(startDelay);
   }, []);
 
-  // Cursor blink effect
   useEffect(() => {
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
     }, 500);
-
     return () => clearInterval(cursorInterval);
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden pt-16">
-      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center z-10 max-w-7xl w-full">
+    <section 
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden pt-16"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      {/* Background Overlay with Gradient for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40 dark:from-background dark:via-background/95 dark:to-background/70 z-0 pointer-events-none"></div>
+
+      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center z-10 max-w-7xl w-full relative">
+
         {/* Left Content */}
         <div className="text-center lg:text-left space-y-4 sm:space-y-6 relative w-full">
-          {/* Mobile Globe - Behind content */}
-          <div className="lg:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[58%] pointer-events-none z-0">
-            <div className="relative h-[400px] w-[400px] sm:h-[500px] sm:w-[500px] opacity-30">
-              <GlobeScene />
+
+          {/* Mobile Visualization - Behind content */}
+          <div className="lg:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[58%] pointer-events-none z-0 flex justify-center items-center">
+            <div className="relative h-[400px] w-[400px] sm:h-[500px] sm:w-[500px] opacity-30 flex justify-center items-center">
+              <div className="w-full h-full dark:hidden flex justify-center items-center scale-75">
+                <DotMatrix />
+              </div>
+              <div className="w-full h-full hidden dark:flex justify-center items-center">
+                <GlobeScene />
+              </div>
             </div>
           </div>
 
@@ -82,19 +92,24 @@ const HeroSection = () => {
           </div>
 
           {/* Name */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold animate-slide-up leading-tight relative z-10 px-2">
-            <span className="gradient-text">Shashank R</span>
+          <h1 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal animate-slide-up leading-tight relative z-10 px-2 text-foreground tracking-wide"
+          >
+            <span className="dark:hidden gradient-text" style={{ fontFamily: "'Anton', sans-serif" }}>Shashank R</span>
+            <span className="hidden dark:inline text-purple-400 font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+              const <span className="text-cyan-400">developer</span> <span className="text-primary">=</span> <span className="gradient-text">'Shashank R'</span><span className="text-purple-400">;</span>
+            </span>
           </h1>
 
           {/* Typing Effect Title */}
           <div className="h-10 sm:h-12 md:h-14 flex items-center justify-center lg:justify-start relative z-10 px-2">
-            <span className="text-lg sm:text-2xl md:text-3xl font-bold text-muted-foreground tracking-wider uppercase" style={{ fontFamily: '"Orbitron", "Rajdhani", monospace', letterSpacing: '0.1em' }}>
+            <span
+              className="text-lg sm:text-2xl md:text-3xl font-bold text-muted-foreground tracking-wider uppercase"
+              style={{ fontFamily: 'var(--font-mono)', letterSpacing: '0.1em' }}
+            >
               <span className="inline-block text-center lg:text-left">
                 {displayText}
-                <span
-                  className={`inline-block w-0.5 h-6 sm:h-8 bg-primary ml-1 sm:ml-2 transition-opacity duration-100 ${showCursor ? 'opacity-100' : 'opacity-0'
-                    }`}
-                />
+                <span className={`inline-block w-0.5 h-6 sm:h-8 bg-primary ml-1 sm:ml-2 transition-opacity duration-100 ${showCursor ? 'opacity-100' : 'opacity-0'}`} />
               </span>
             </span>
           </div>
@@ -107,44 +122,44 @@ const HeroSection = () => {
 
           {/* Social Links */}
           <div className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 sm:pt-4 relative z-10">
-            <a
-              href="mailto:r8013938@gmail.com"
-              className="group relative p-2.5 sm:p-3 glass rounded-xl hover:border-primary/50 transition-all duration-300 hover:glow hover:scale-110"
-            >
+            <a href="mailto:r8013938@gmail.com" className="group relative p-2.5 sm:p-3 glass rounded-xl hover:border-primary/50 transition-all duration-300 hover:glow hover:scale-110">
               <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-primary transition-colors" />
             </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative p-2.5 sm:p-3 glass rounded-xl hover:border-primary/50 transition-all duration-300 hover:glow hover:scale-110"
-            >
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="group relative p-2.5 sm:p-3 glass rounded-xl hover:border-primary/50 transition-all duration-300 hover:glow hover:scale-110">
               <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-primary transition-colors" />
             </a>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative p-2.5 sm:p-3 glass rounded-xl hover:border-primary/50 transition-all duration-300 hover:glow hover:scale-110"
-            >
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="group relative p-2.5 sm:p-3 glass rounded-xl hover:border-primary/50 transition-all duration-300 hover:glow hover:scale-110">
               <Github className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-primary transition-colors" />
             </a>
           </div>
 
-          {/* Scroll Indicator */}
+          {/* Scroll hint */}
           <a
             href="#about"
-            className="inline-flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors pt-4 sm:pt-6 relative z-10"
+            className="inline-flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors pt-4 sm:pt-6 relative z-10 group"
           >
-            <span className="text-xs font-mono uppercase tracking-widest">Scroll Down</span>
-            <ArrowDown className="w-4 h-4 animate-bounce" />
+            <div
+              className="w-px h-12 origin-top"
+              style={{
+                background: 'linear-gradient(to bottom, hsl(var(--primary) / 0.8), transparent)',
+                animation: 'scroll-line 2s ease-in-out infinite',
+              }}
+            />
+            <span className="text-xs font-mono uppercase tracking-[0.2em] opacity-60 group-hover:opacity-100 transition-opacity">
+              Scroll
+            </span>
           </a>
         </div>
 
-        {/* Right - 3D Globe - Desktop only */}
-        <div className="hidden lg:flex justify-center items-center">
+        {/* Right - Visualization - Desktop only */}
+        <div className="hidden lg:flex justify-center items-center -translate-y-8 md:-translate-y-12">
           <div className="relative h-[600px] w-[600px]">
-            <GlobeScene />
+            <div className="w-full h-full dark:hidden flex justify-center items-center">
+              <DotMatrix />
+            </div>
+            <div className="w-full h-full hidden dark:flex justify-center items-center">
+              <GlobeScene />
+            </div>
           </div>
         </div>
       </div>

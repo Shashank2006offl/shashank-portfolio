@@ -1,0 +1,47 @@
+.svg-parallax-container {
+    position: relative;
+    width: 100%;
+}
+
+.svg-parallax-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Changed to 0 so it stays as background behind main elements */
+    backface-visibility: hidden;
+    height: 100vh;
+    perspective: 1000px;
+    transform: translateZ(0) scale(1.001);
+    transform-style: preserve-3d;
+    width: 100%;
+    will-change: transform;
+    pointer-events: none;
+}
+
+.svg-parallax-svg {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform: translateZ(0) scale(1.001);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.svg-parallax-scrollElement {
+    position: absolute;
+    width: 100%;
+    height: 6000px;
+    top: 0;
+    z-index: 1;
+}
+
+@media (max-width: 490px) {
+    #arrow, #info2, #text {
+        transform: translateY(-120px) scale(0.8);
+        transform-origin: 50% 50%;
+    }
+}

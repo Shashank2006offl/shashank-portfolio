@@ -16,9 +16,12 @@ const useSmoothScroll = () => {
             const targetElement = document.querySelector(href);
             if (!targetElement) return;
 
-            // Use native smooth scroll with custom offset
+            // For sticky sections (like #projects), we want a 0px offset so the sticky child begins sticking immediately.
+            // For other sections, we offset by 65px to clear the fixed navigation bar.
+            const isProjects = href === '#projects';
+            const offset = isProjects ? 0 : 65;
             const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - 100;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
 
             window.scrollTo({
                 top: offsetPosition,

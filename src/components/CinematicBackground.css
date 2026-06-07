@@ -1,0 +1,145 @@
+.cinematic-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.15; /* Subdued so it acts as a background */
+  font-size: 20px;
+}
+
+.cinematic-wrapper * {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cinematic-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  animation: cinematic-camera 11s cubic-bezier(0.6, 0, 0.4, 1) both infinite;
+}
+
+.cinematic-container:after {
+  content: "";
+  background: linear-gradient(to bottom, var(--background), transparent 20%, transparent 80%, var(--background));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.cinematic-main {
+  background: transparent;
+  padding: 2rem;
+  max-width: 100%;
+  width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  animation: cinematic 22s linear both infinite; /* Slower so it's ambient */
+}
+
+.cinematic-main > * {
+  grid-column: 1 / -1;
+}
+
+.cinematic-img {
+  max-width: 100%;
+  display: block;
+  transform-style: preserve-3d;
+  animation: image-pop 11s ease-in-out both infinite;
+}
+
+.cinematic-img:last-of-type {
+  animation-delay: 4s;
+}
+
+.cinematic-main p {
+  line-height: 1.8;
+  margin: 1rem 0;
+  color: rgb(158, 166, 184);
+}
+
+.cinematic-main h1 {
+  line-height: 1.3;
+  font-size: 5vw;
+  margin: 1rem 0;
+  color: #fff;
+}
+
+.cinematic-main h2 {
+  font-size: 4vw;
+  margin: 1rem 0;
+  color: #fff;
+}
+
+.cinematic-main h3 {
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.cinematic-main h2.subheader {
+  font-size: 2vw;
+}
+
+.cinematic-section {
+  grid-column: auto;
+}
+
+.cinematic-header {
+  display: grid;
+  align-content: center;
+  grid-column: 1 / -1;
+}
+
+.callout {
+  text-align: center;
+  background-color: #3173fa;
+  padding: 1vw 3vw;
+}
+
+.callout > p {
+  color: white;
+}
+
+@keyframes cinematic-camera {
+  from {
+    perspective-origin: 60% 40%;
+  }
+  to {
+    perspective-origin: 40% 60%;
+  }
+  from,
+  to {
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+}
+
+@keyframes cinematic {
+  from {
+    transform: translateZ(-200px) rotateY(30deg) translateY(50vh);
+  }
+  to {
+    transform: translateZ(-100px) rotateY(-30deg) translateY(-100%) translateY(50vh);
+  }
+}
+
+@keyframes image-pop {
+  70%,
+  100% {
+    transform: translate3d(0, 0, 60px);
+  }
+}

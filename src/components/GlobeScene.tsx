@@ -79,9 +79,9 @@ const WireframeGlobe = () => {
       {/* Lines */}
       <lineSegments geometry={linesGeo}>
         <lineBasicMaterial
-          color="#0891b2"
+          color="#22d3ee" // Bright Cyan for contrast
           transparent
-          opacity={hovered ? 0.6 : 0.4}
+          opacity={hovered ? 0.8 : 0.5}
           linewidth={1}
         />
       </lineSegments>
@@ -91,9 +91,9 @@ const WireframeGlobe = () => {
         <pointsMaterial
           size={hovered ? 0.04 : 0.035}
           sizeAttenuation={true}
-          color="#06b6d4"
+          color="#ffffff" // White points to stand out
           transparent
-          opacity={hovered ? 0.9 : 0.7}
+          opacity={hovered ? 1.0 : 0.8}
           depthWrite={false}
         />
       </points>
@@ -111,7 +111,7 @@ const WireframeGlobe = () => {
 
       {/* Lighting */}
       <ambientLight intensity={0.4} />
-      <pointLight position={[5, 5, 5]} intensity={0.4} color="#0891b2" />
+      <pointLight position={[5, 5, 5]} intensity={0.4} color="#ea580c" />
     </group>
   );
 };
