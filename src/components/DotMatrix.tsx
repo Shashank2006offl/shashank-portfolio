@@ -27,20 +27,23 @@ const DotMatrix = () => {
       ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, COLS, ROWS);
 
-      // Pick font size that fits
-      const fontSize = text.length >= 7 ? 5 : text.length >= 5 ? 7 : 10;
+      // Pick font size that fits the 48x16 grid better
+      // SHASHANK (8 chars) fits nicely at 8px
+      const fontSize = text.length >= 7 ? 8 : text.length >= 5 ? 10 : 12;
       ctx.font = `bold ${fontSize}px monospace`;
       ctx.fillStyle = '#fff';
       ctx.textAlign    = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(text, COLS / 2, ROWS / 2);
+      // Slight vertical offset tweak for middle alignment
+      ctx.fillText(text, COLS / 2, ROWS / 2 + 1);
 
       const { data } = ctx.getImageData(0, 0, COLS, ROWS);
 
       dotRefs.current.forEach((dot, i) => {
         if (!dot) return;
         const o   = i * 4;
-        const on  = (data[o] + data[o + 1] + data[o + 2]) / 3 > 100;
+        // Lower threshold back down slightly to catch antialiased pixels so text isn't broken
+        const on  = (data[o] + data[o + 1] + data[o + 2]) / 3 > 75;
         dot.style.background = on
           ? 'hsl(var(--primary))'
           : 'rgba(255,255,255,0.07)';
