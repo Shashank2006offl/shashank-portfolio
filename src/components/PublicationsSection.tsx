@@ -153,7 +153,7 @@ const PublicationsSection = () => {
       <div ref={slide1Ref} className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5 overflow-hidden">
         <div
           ref={bg1Ref}
-          className="absolute inset-[-15%] bg-cover bg-center"
+          className="absolute inset-[-30%] bg-cover bg-center"
           style={{ backgroundImage: `url(${bgSpringer})`, willChange: 'transform' }}
         />
         <div className="absolute inset-0 z-0" />
@@ -202,7 +202,7 @@ const PublicationsSection = () => {
       <div ref={slide2Ref} className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5 overflow-hidden">
         <div
           ref={bg2Ref}
-          className="absolute inset-[-15%] bg-cover bg-center"
+          className="absolute inset-[-30%] bg-cover bg-center"
           style={{ backgroundImage: `url(${bgOther})`, willChange: 'transform' }}
         />
         <div className="absolute inset-0 z-0" />
@@ -242,7 +242,7 @@ const PublicationsSection = () => {
       <div ref={slide3Ref} className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 overflow-hidden">
         <div
           ref={bg3Ref}
-          className="absolute inset-[-15%] bg-cover bg-center"
+          className="absolute inset-[-30%] bg-cover bg-center"
           style={{ backgroundImage: `url(${bgReview})`, willChange: 'transform' }}
         />
         <div className="absolute inset-0 z-0" />
