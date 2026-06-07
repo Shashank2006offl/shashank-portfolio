@@ -36,9 +36,19 @@ const Navigation = ({ isDarkMode, toggleTheme }: NavigationProps) => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a
           href="#"
-          className="hover:scale-105 transition-transform"
+          className="relative group flex items-center justify-center transition-all duration-300"
         >
-          <img src="/favicon.png" alt="SR Logo" className="w-10 h-10 rounded-full shadow-sm border-2 border-transparent dark:border-white/20" />
+          {/* Glowing blur backdrop in dark mode */}
+          <div className="absolute inset-[-6px] rounded-full bg-gradient-to-tr from-primary via-secondary to-primary/80 opacity-0 group-hover:opacity-50 dark:opacity-30 dark:group-hover:opacity-70 blur-[8px] transition-opacity duration-500" />
+          
+          {/* Animated gradient ring */}
+          <div className="absolute inset-[-2px] rounded-full bg-gradient-to-tr from-primary via-secondary to-primary/80 opacity-0 group-hover:opacity-100 dark:opacity-60 dark:group-hover:opacity-100 transition-opacity duration-500 animate-pulse" style={{ animationDuration: '3s' }} />
+          
+          <img 
+            src="/favicon.png" 
+            alt="SR Logo" 
+            className="relative w-10 h-10 rounded-full shadow-md z-10 border border-border/50 group-hover:scale-95 transition-transform duration-300 bg-background" 
+          />
         </a>
 
         {/* Desktop Navigation */}
