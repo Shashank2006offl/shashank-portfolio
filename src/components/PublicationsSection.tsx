@@ -171,7 +171,7 @@ const PublicationsSection = () => {
 
           <div className="lg:w-2/3 space-y-6 w-full">
             {publications.springerElsevier.map((pub, index) => (
-              <div key={index} className="bg-background/30 backdrop-blur-sm border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-primary/40 transition-all duration-300 shadow-lg">
+              <div key={index} className="bg-background/60 backdrop-blur-sm border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-primary/40 transition-all duration-300 shadow-lg">
                 <h4 className="font-bold text-xl mb-2 text-foreground">{pub.title}</h4>
                 <p className="text-muted-foreground mb-4">{pub.authors}</p>
                 {pub.highlights && (
@@ -220,7 +220,7 @@ const PublicationsSection = () => {
 
           <div className="lg:w-2/3 space-y-6 w-full">
             {publications.otherJournals.map((pub, index) => (
-              <div key={index} className="bg-background/30 backdrop-blur-sm border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-secondary/40 transition-all duration-300 shadow-lg">
+              <div key={index} className="bg-background/60 backdrop-blur-sm border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-secondary/40 transition-all duration-300 shadow-lg">
                 <h4 className="font-bold text-xl mb-2 text-foreground">{pub.title}</h4>
                 <p className="text-muted-foreground mb-4">{pub.authors}</p>
                 <div className="flex flex-wrap gap-4 items-center text-sm">
@@ -260,7 +260,7 @@ const PublicationsSection = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             {publications.underReview.map((pub, index) => (
-              <div key={index} className="bg-background/30 backdrop-blur-sm border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-yellow-500/40 transition-all duration-300 flex flex-col h-full justify-center text-left shadow-lg">
+              <div key={index} className="bg-background/60 backdrop-blur-sm border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-yellow-500/40 transition-all duration-300 flex flex-col h-full justify-center text-left shadow-lg">
                 <div className="p-3 rounded-xl bg-yellow-500/10 text-yellow-500 w-max mb-4">
                   <Clock className="w-6 h-6" />
                 </div>
