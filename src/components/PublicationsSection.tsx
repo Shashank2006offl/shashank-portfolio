@@ -3,7 +3,7 @@ import { FileText, Clock, CheckCircle, ExternalLink } from 'lucide-react';
 
 import bgSpringer from '../assets/research/vanya-smythe-CH7kRmyBQ4I-unsplash.webp';
 import bgOther from '../assets/research/annie-spratt-U_Ff4ohzLSw-unsplash.jpg';
-import bgReview from '../assets/research/igor-omilaev-eGGFZ5X2LnA-unsplash.jpg';
+import bgReview from '../assets/research/steve-a-johnson-ZPOoDQc8yMw-unsplash.webp';
 
 const publications = {
   springerElsevier: [
