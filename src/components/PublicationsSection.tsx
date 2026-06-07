@@ -99,8 +99,8 @@ const PublicationsSection = () => {
 
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 items-center relative z-10">
           <div className="lg:w-1/3 text-center lg:text-right">
-            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}><span className="text-foreground dark:text-yellow-500">Springer</span> &amp;<br /><span className="text-primary">Elsevier</span></h1>
-            <p className="text-zinc-950 dark:text-zinc-50 text-lg font-semibold">Top-tier peer-reviewed journals focusing on AI, HVAC scheduling, and Predictive Maintenance.</p>
+            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}><span className="text-white">Springer &amp;</span><br /><span className="text-primary">Elsevier</span></h1>
+            <p className="text-zinc-200 text-lg font-semibold" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.9)' }}>Top-tier peer-reviewed journals focusing on AI, HVAC scheduling, and Predictive Maintenance.</p>
           </div>
 
           <div className="lg:w-2/3 space-y-6 w-full">
@@ -143,8 +143,8 @@ const PublicationsSection = () => {
 
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row-reverse gap-12 items-center relative z-10">
           <div className="lg:w-1/3 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}>Other<br /><span className="text-secondary">Journals</span></h1>
-            <p className="text-zinc-950 dark:text-zinc-50 text-lg font-semibold">Publications focusing on applied AI in education and building optimization.</p>
+            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}><span className="text-white">Other</span><br /><span className="text-secondary">Journals</span></h1>
+            <p className="text-zinc-200 text-lg font-semibold" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.9)' }}>Publications focusing on applied AI in education and building optimization.</p>
           </div>
 
           <div className="lg:w-2/3 space-y-6 w-full">
