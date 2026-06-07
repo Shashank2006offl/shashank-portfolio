@@ -68,22 +68,22 @@ const PublicationsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   return (
-    <section 
-      id="publications" 
-      ref={sectionRef} 
-      className="w-full bg-background"
+    <section
+      id="publications"
+      ref={sectionRef}
+      className="w-full bg-zinc-950 text-white overflow-hidden"
     >
-      
+
       {/* Introduction Header */}
-      <div className="flex flex-col justify-center text-center pt-12 pb-4 px-4 relative">
+      <div className="flex flex-col justify-center text-center pt-12 pb-4 px-4 relative z-10">
         <span className="text-primary font-mono text-xs tracking-widest uppercase">
           Research Output
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2 mb-3">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2 mb-3 text-white">
           Academic <span className="gradient-text">Publications</span>
         </h2>
         <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4" />
-        <p className="text-muted-foreground text-sm max-w-xl mx-auto mb-4">
+        <p className="text-zinc-400 text-sm max-w-xl mx-auto mb-4">
           Explore my published research and ongoing works.
         </p>
       </div>
@@ -92,25 +92,24 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 dark:opacity-30 mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40 mix-blend-screen"
           style={{ backgroundImage: `url(${bgSpringer})` }}
         />
-        {/* Darkening Overlay so text remains readable */}
-        <div className="absolute inset-0 bg-background/80 z-0" />
-        
+        <div className="absolute inset-0 bg-black/40 z-0" />
+
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 items-center relative z-10">
           <div className="lg:w-1/3 text-center lg:text-right">
-            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}>Springer &amp;<br/><span className="text-primary">Elsevier</span></h1>
-            <p className="text-muted-foreground text-lg">Top-tier peer-reviewed journals focusing on AI, HVAC scheduling, and Predictive Maintenance.</p>
+            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4 text-white" style={{ fontFamily: 'var(--font-display)' }}><span className="text-yellow-500">Springer</span> &amp;<br /><span className="text-primary">Elsevier</span></h1>
+            <p className="text-zinc-400 text-lg">Top-tier peer-reviewed journals focusing on AI, HVAC scheduling, and Predictive Maintenance.</p>
           </div>
-          
+
           <div className="lg:w-2/3 space-y-6 w-full">
             {publications.springerElsevier.map((pub, index) => (
-              <div key={index} className="glass rounded-2xl p-6 sm:p-8 hover:border-primary/40 transition-all duration-300">
-                <h4 className="font-bold text-xl mb-2 text-foreground">{pub.title}</h4>
-                <p className="text-muted-foreground mb-4">{pub.authors}</p>
+              <div key={index} className="bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-primary/40 transition-all duration-300">
+                <h4 className="font-bold text-xl mb-2 text-white">{pub.title}</h4>
+                <p className="text-zinc-400 mb-4">{pub.authors}</p>
                 {pub.highlights && (
-                  <ul className="mb-4 space-y-1 text-sm text-foreground/80 list-none pl-0">
+                  <ul className="mb-4 space-y-1 text-sm text-zinc-300 list-none pl-0">
                     {pub.highlights.map((highlight, hIndex) => (
                       <li key={hIndex} className="flex items-start gap-2">
                         <span className="text-primary mt-1">•</span><span>{highlight}</span>
@@ -119,8 +118,8 @@ const PublicationsSection = () => {
                   </ul>
                 )}
                 <div className="flex flex-wrap gap-4 items-center text-sm">
-                  <span className="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-semibold">{pub.journal}</span>
-                  <span className="text-muted-foreground font-mono font-bold">{pub.year}</span>
+                  <span className="px-3 py-1 rounded-full bg-secondary/20 text-secondary font-semibold">{pub.journal}</span>
+                  <span className="text-zinc-400 font-mono font-bold">{pub.year}</span>
                   {pub.link && pub.link !== '#' && (
                     <a href={pub.link} target="_blank" rel="noopener noreferrer" className="ml-auto text-primary hover:underline flex items-center gap-1 font-bold">
                       View <ExternalLink className="w-4 h-4" />
@@ -137,26 +136,25 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 dark:opacity-30 mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40 mix-blend-screen"
           style={{ backgroundImage: `url(${bgOther})` }}
         />
-        {/* Darkening Overlay */}
-        <div className="absolute inset-0 bg-background/80 z-0" />
-        
+        <div className="absolute inset-0 bg-black/40 z-0" />
+
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row-reverse gap-12 items-center relative z-10">
           <div className="lg:w-1/3 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}>Other<br/><span className="text-secondary">Journals</span></h1>
-            <p className="text-muted-foreground text-lg">Publications focusing on applied AI in education and building optimization.</p>
+            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4 text-white" style={{ fontFamily: 'var(--font-display)' }}>Other<br /><span className="text-secondary">Journals</span></h1>
+            <p className="text-zinc-400 text-lg">Publications focusing on applied AI in education and building optimization.</p>
           </div>
-          
+
           <div className="lg:w-2/3 space-y-6 w-full">
             {publications.otherJournals.map((pub, index) => (
-              <div key={index} className="glass rounded-2xl p-6 sm:p-8 hover:border-secondary/40 transition-all duration-300">
-                <h4 className="font-bold text-xl mb-2 text-foreground">{pub.title}</h4>
-                <p className="text-muted-foreground mb-4">{pub.authors}</p>
+              <div key={index} className="bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-secondary/40 transition-all duration-300">
+                <h4 className="font-bold text-xl mb-2 text-white">{pub.title}</h4>
+                <p className="text-zinc-400 mb-4">{pub.authors}</p>
                 <div className="flex flex-wrap gap-4 items-center text-sm">
-                  <span className="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-semibold">{pub.journal}</span>
-                  <span className="text-muted-foreground font-mono font-bold">{pub.year}</span>
+                  <span className="px-3 py-1 rounded-full bg-secondary/20 text-secondary font-semibold">{pub.journal}</span>
+                  <span className="text-zinc-400 font-mono font-bold">{pub.year}</span>
                   {pub.link && (
                     <a href={pub.link} target="_blank" rel="noopener noreferrer" className="ml-auto text-secondary hover:underline flex items-center gap-1 font-bold">
                       View <ExternalLink className="w-4 h-4" />
@@ -173,27 +171,26 @@ const PublicationsSection = () => {
       <div className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20">
         {/* Native CSS Fixed Parallax */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-0 dark:opacity-30 mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40 mix-blend-screen"
           style={{ backgroundImage: `url(${bgReview})` }}
         />
-        {/* Darkening Overlay */}
-        <div className="absolute inset-0 bg-background/80 z-0" />
-        
+        <div className="absolute inset-0 bg-black/40 z-0" />
+
         <div className="container max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
           <div className="mb-12">
-            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4" style={{ fontFamily: 'var(--font-display)' }}>Under<br/><span className="text-yellow-500">Review</span></h1>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto">Upcoming research works currently in preparation or under peer review.</p>
+            <h1 className="text-4xl sm:text-6xl font-bold leading-none mb-4 text-white" style={{ fontFamily: 'var(--font-display)' }}>Under<br /><span className="text-yellow-500">Review</span></h1>
+            <p className="text-zinc-400 text-lg max-w-xl mx-auto">Upcoming research works currently in preparation or under peer review.</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             {publications.underReview.map((pub, index) => (
-              <div key={index} className="glass rounded-2xl p-6 sm:p-8 hover:border-yellow-500/40 transition-all duration-300 flex flex-col h-full justify-center text-left">
+              <div key={index} className="bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-yellow-500/40 transition-all duration-300 flex flex-col h-full justify-center text-left">
                 <div className="p-3 rounded-xl bg-yellow-500/10 text-yellow-500 w-max mb-4">
                   <Clock className="w-6 h-6" />
                 </div>
-                <h4 className="font-bold text-xl mb-2">{pub.title}</h4>
-                <p className="text-muted-foreground mb-4">{pub.authors}</p>
-                <span className="inline-block px-3 py-1 rounded-full bg-muted font-mono text-sm tracking-widest w-max mt-auto">{pub.year}</span>
+                <h4 className="font-bold text-xl mb-2 text-white">{pub.title}</h4>
+                <p className="text-zinc-400 mb-4">{pub.authors}</p>
+                <span className="inline-block px-3 py-1 rounded-full bg-zinc-800 font-mono text-sm tracking-widest w-max mt-auto text-zinc-300">{pub.year}</span>
               </div>
             ))}
           </div>
