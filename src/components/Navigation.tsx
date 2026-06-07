@@ -36,9 +36,14 @@ const Navigation = ({ isDarkMode, toggleTheme }: NavigationProps) => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a
           href="#"
-          className="hover:scale-105 transition-transform"
+          className="text-xl font-bold font-mono tracking-tight hover:scale-105 transition-transform"
         >
-          <img src="/favicon.png" alt="SR Logo" className="w-10 h-10 rounded-full shadow-sm" />
+          <span className="dark:hidden gradient-text">SR</span>
+          <span className="hidden dark:inline-flex items-center gap-0.5 text-primary">
+            <span className="text-purple-400">&lt;</span>
+            <span className="gradient-text">SR</span>
+            <span className="text-purple-400">/&gt;</span>
+          </span>
         </a>
 
         {/* Desktop Navigation */}
