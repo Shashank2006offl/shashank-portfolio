@@ -153,7 +153,7 @@ const PublicationsSection = () => {
       <div ref={slide1Ref} className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5 overflow-hidden">
         <div
           ref={bg1Ref}
-          className="absolute inset-[-30%] bg-cover bg-center"
+          className="absolute inset-[-15%] bg-cover bg-center"
           style={{ backgroundImage: `url(${bgSpringer})`, willChange: 'transform' }}
         />
         <div className="absolute inset-0 z-0" />
@@ -171,7 +171,7 @@ const PublicationsSection = () => {
 
           <div className="lg:w-2/3 space-y-6 w-full">
             {publications.springerElsevier.map((pub, index) => (
-              <div key={index} className="bg-background/90 backdrop-blur-md border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-primary/40 transition-all duration-300 shadow-lg">
+              <div key={index} className="bg-background/95 border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-primary/40 transition-all duration-300 shadow-lg">
                 <h4 className="font-bold text-xl mb-2 text-foreground">{pub.title}</h4>
                 <p className="text-muted-foreground mb-4">{pub.authors}</p>
                 {pub.highlights && (
@@ -202,7 +202,7 @@ const PublicationsSection = () => {
       <div ref={slide2Ref} className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 border-b border-white/5 overflow-hidden">
         <div
           ref={bg2Ref}
-          className="absolute inset-[-30%] bg-cover bg-center"
+          className="absolute inset-[-15%] bg-cover bg-center"
           style={{ backgroundImage: `url(${bgOther})`, willChange: 'transform' }}
         />
         <div className="absolute inset-0 z-0" />
@@ -220,7 +220,7 @@ const PublicationsSection = () => {
 
           <div className="lg:w-2/3 space-y-6 w-full">
             {publications.otherJournals.map((pub, index) => (
-              <div key={index} className="bg-background/90 backdrop-blur-md border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-secondary/40 transition-all duration-300 shadow-lg">
+              <div key={index} className="bg-background/95 border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-secondary/40 transition-all duration-300 shadow-lg">
                 <h4 className="font-bold text-xl mb-2 text-foreground">{pub.title}</h4>
                 <p className="text-muted-foreground mb-4">{pub.authors}</p>
                 <div className="flex flex-wrap gap-4 items-center text-sm">
@@ -242,7 +242,7 @@ const PublicationsSection = () => {
       <div ref={slide3Ref} className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-20 overflow-hidden">
         <div
           ref={bg3Ref}
-          className="absolute inset-[-30%] bg-cover bg-center"
+          className="absolute inset-[-15%] bg-cover bg-center"
           style={{ backgroundImage: `url(${bgReview})`, willChange: 'transform' }}
         />
         <div className="absolute inset-0 z-0" />
@@ -260,7 +260,7 @@ const PublicationsSection = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             {publications.underReview.map((pub, index) => (
-              <div key={index} className="bg-background/90 backdrop-blur-md border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-yellow-500/40 transition-all duration-300 flex flex-col h-full justify-center text-left shadow-lg">
+              <div key={index} className="bg-background/95 border border-border/40 rounded-2xl p-6 sm:p-8 hover:border-yellow-500/40 transition-all duration-300 flex flex-col h-full justify-center text-left shadow-lg">
                 <div className="p-3 rounded-xl bg-yellow-500/10 text-yellow-500 w-max mb-4">
                   <Clock className="w-6 h-6" />
                 </div>
