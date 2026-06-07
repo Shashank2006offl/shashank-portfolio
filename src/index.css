@@ -241,27 +241,10 @@
   }
 }
 
-/* ── CSS Scroll-Driven Parallax ── */
-@keyframes parallax-drift {
-  from { transform: translateY(-12%) scale(1.12); }
-  to   { transform: translateY(12%)  scale(1.12); }
-}
-
-.parallax-bg {
-  will-change: transform;
-  animation: parallax-drift linear both;
-  /* Scroll-driven: tied to how much of the parent is visible in the viewport */
-  animation-timeline: view();
-  animation-range: entry 0% exit 100%;
-}
-
-/* Fallback for browsers that don't support scroll-driven animations */
-@supports not (animation-timeline: view()) {
-  .parallax-bg {
-    animation: none;
-    transform: none;
-  }
-}
+/* ── CSS Fixed Parallax (background-attachment: fixed) ──
+   Used in PublicationsSection slides. The section clips the fixed bg,
+   creating the parallax effect as you scroll. Works in Chrome/Firefox.
+   On iOS Safari it degrades gracefully to a static background.      */
 
 /* Animations */
 @keyframes scroll-line {
