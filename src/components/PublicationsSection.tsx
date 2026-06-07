@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { FileText, Clock, CheckCircle, ExternalLink } from 'lucide-react';
 
-import bgSpringer from '../assets/research/bg-springer.png';
+import bgSpringer from '../assets/research/vanya-smythe-CH7kRmyBQ4I-unsplash.webp';
 import bgOther from '../assets/research/bg-other.png';
 import bgReview from '../assets/research/bg-review.png';
 
