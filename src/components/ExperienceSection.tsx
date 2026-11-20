@@ -70,10 +70,10 @@ const ExperienceSection = () => (
                   index % 2 === 0 ? "lg:col-start-1" : "lg:col-start-3"
                 }`}
               >
-                <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
-                  <div className="flex items-center gap-3">
+                <div className="mb-6 flex items-start justify-between gap-3">
+                  <div className="flex min-w-0 items-center gap-3">
                     <div
-                      className={`flex h-12 w-12 items-center justify-center rounded-2xl border ${
+                      className={`hidden h-12 w-12 shrink-0 items-center justify-center rounded-2xl border md:flex ${
                         item.current
                           ? "border-primary/40 bg-primary/12 text-primary"
                           : "border-secondary/30 bg-secondary/10 text-secondary"
@@ -81,7 +81,7 @@ const ExperienceSection = () => (
                     >
                       <BriefcaseBusiness className="h-5 w-5" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                         {item.type}
                       </p>
