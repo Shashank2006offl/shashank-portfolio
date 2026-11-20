@@ -51,7 +51,7 @@ const ExperienceSection = () => (
       </header>
 
       <div className="relative">
-        <div className="absolute left-[27px] top-8 bottom-8 hidden w-px bg-gradient-to-b from-primary via-border to-transparent md:block lg:left-1/2 lg:-translate-x-1/2" />
+        <div className="absolute left-[27px] top-8 bottom-8 hidden w-px bg-gradient-to-b from-border via-border to-transparent md:block lg:left-1/2 lg:-translate-x-1/2" />
 
         <div className="space-y-7 md:space-y-12">
           {EXPERIENCE.map((item, index) => (
@@ -62,21 +62,21 @@ const ExperienceSection = () => (
               }`}
             >
               <div
-                className={`experience-card group ml-12 rounded-3xl border p-6 md:ml-0 md:p-8 transition-colors ${
+                className={`experience-card group w-full min-w-0 rounded-3xl border p-5 sm:p-6 md:p-8 transition-colors ${
                   item.current
-                    ? "border-primary/35 bg-card/25 hover:border-primary/60"
-                    : "border-border/60 bg-card/25 hover:border-secondary/50"
+                    ? "border-border/60 bg-card/25"
+                    : "border-border/60 bg-card/25"
                 } ${
                   index % 2 === 0 ? "lg:col-start-1" : "lg:col-start-3"
                 }`}
               >
-                <div className="mb-6 flex items-start justify-between gap-3">
+                <div className="mb-5">
                   <div className="flex min-w-0 items-center gap-3">
                     <div
                       className={`hidden h-12 w-12 shrink-0 items-center justify-center rounded-2xl border md:flex ${
                         item.current
-                          ? "border-primary/40 bg-primary/12 text-primary"
-                          : "border-secondary/30 bg-secondary/10 text-secondary"
+                          ? "border-border/60 bg-card/30 text-muted-foreground"
+                          : "border-border/60 bg-card/30 text-muted-foreground"
                       }`}
                     >
                       <BriefcaseBusiness className="h-5 w-5" />
@@ -91,7 +91,7 @@ const ExperienceSection = () => (
 
                 </div>
 
-                <h3 className="mb-3 text-2xl md:text-3xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors">
+                <h3 className="mb-3 text-xl sm:text-2xl md:text-3xl font-bold leading-tight text-foreground">
                   {item.role}
                 </h3>
                 <p className="mb-6 leading-relaxed text-muted-foreground">
@@ -117,11 +117,11 @@ const ExperienceSection = () => (
                       {item.location}
                     </p>
                   </div>
-                  <ArrowUpRight className="h-5 w-5 text-muted-foreground/40 transition-colors group-hover:text-primary" />
+                  <ArrowUpRight className="hidden h-5 w-5 text-muted-foreground/40 sm:block" />
                 </div>
               </div>
 
-              <div className="absolute left-[15px] top-7 z-10 flex h-6 w-6 items-center justify-center rounded-full border-4 border-background bg-primary md:left-[15px] lg:left-1/2 lg:top-8 lg:-translate-x-1/2">
+              <div className="hidden md:absolute md:left-[15px] md:top-7 md:z-10 md:flex md:h-6 md:w-6 md:items-center md:justify-center md:rounded-full md:border-4 md:border-background md:bg-muted-foreground/50 lg:left-1/2 lg:top-8 lg:-translate-x-1/2">
               </div>
 
               {index % 2 === 1 && item.current && (

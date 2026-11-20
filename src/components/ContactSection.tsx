@@ -79,7 +79,7 @@ const ContactSection = () => {
     { icon: Mail, label: 'Email', value: 'r8013938@gmail.com', href: 'mailto:r8013938@gmail.com' },
     { icon: Phone, label: 'Phone', value: '+91 7603945397', href: 'tel:+917603945397' },
     { icon: Linkedin, label: 'LinkedIn', value: 'Connect with me', href: 'https://linkedin.com' },
-    { icon: Github, label: 'GitHub', value: 'View projects', href: 'https://github.com' },
+    { icon: Github, label: 'GitHub', value: 'View projects', href: 'https://github.com/Shashank2006offl' },
   ];
 
   return (

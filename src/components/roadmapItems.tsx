@@ -113,7 +113,7 @@ export default function RoadmapSection() {
         <div className="relative max-w-2xl mx-auto">
 
           {/* Vertical spine */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-border to-transparent" />
+          <div className="absolute left-[28px] md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-border to-transparent" />
 
           <div className="space-y-6">
             {roadmapItems.map((item, index) => {
@@ -122,7 +122,7 @@ export default function RoadmapSection() {
               return (
                 <div
                   key={item.id}
-                  className="timeline-card relative flex items-start gap-6 group"
+                  className="timeline-card relative flex items-start gap-3 md:gap-6 group"
                   style={{
                     opacity: 0,
                     transform: isLeft ? 'translateX(-24px)' : 'translateX(24px)',
@@ -137,9 +137,9 @@ export default function RoadmapSection() {
                       style={{ background: item.glow }}
                     />
                     <div
-                      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300`}
+                      className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300`}
                     >
-                      <Icon className="w-7 h-7 text-white" />
+                      <Icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
                     </div>
                     {/* Index badge */}
                     <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-background border border-border text-[10px] font-mono font-bold flex items-center justify-center text-muted-foreground">
@@ -148,9 +148,9 @@ export default function RoadmapSection() {
                   </div>
 
                   {/* Card */}
-                  <div className="flex-1 bg-card/60 backdrop-blur-sm border border-border/40 rounded-2xl p-5 hover:border-border/80 hover:shadow-xl transition-all duration-300 group-hover:-translate-y-0.5">
-                    <div className="flex items-start justify-between gap-3 mb-2">
-                      <h3 className="font-bold text-lg text-foreground leading-tight">{item.title}</h3>
+                  <div className="min-w-0 flex-1 bg-card/60 backdrop-blur-sm border border-border/40 rounded-2xl p-4 md:p-5 hover:border-border/80 hover:shadow-xl transition-all duration-300 group-hover:-translate-y-0.5">
+                    <div className="flex flex-col-reverse items-start gap-2 mb-2 md:flex-row md:items-start md:justify-between">
+                      <h3 className="min-w-0 font-bold text-lg text-foreground leading-tight">{item.title}</h3>
                       <span
                         className={`flex-shrink-0 text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-gradient-to-r ${item.color} text-white`}
                       >
@@ -169,7 +169,7 @@ export default function RoadmapSection() {
           </div>
 
           {/* Terminal footer card */}
-          <div className="mt-10 ml-[5.5rem] bg-card/40 backdrop-blur-sm border border-border/40 rounded-2xl p-6 font-mono text-sm">
+          <div className="mt-10 ml-14 md:ml-[5.5rem] bg-card/40 backdrop-blur-sm border border-border/40 rounded-2xl p-5 md:p-6 font-mono text-sm">
             <div className="flex items-center gap-2 mb-3">
               <Terminal className="w-4 h-4 text-secondary" />
               <span className="text-secondary font-bold">~/shashank</span>

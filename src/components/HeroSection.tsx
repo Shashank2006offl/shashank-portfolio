@@ -134,7 +134,7 @@ const HeroSection = () => {
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="group relative p-2.5 sm:p-3 glass rounded-xl hover:border-primary/50 transition-all duration-300 hover:glow hover:scale-110">
               <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-primary transition-colors" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="group relative p-2.5 sm:p-3 glass rounded-xl hover:border-primary/50 transition-all duration-300 hover:glow hover:scale-110">
+            <a href="https://github.com/Shashank2006offl" target="_blank" rel="noopener noreferrer" className="group relative p-2.5 sm:p-3 glass rounded-xl hover:border-primary/50 transition-all duration-300 hover:glow hover:scale-110">
               <Github className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-primary transition-colors" />
             </a>
           </div>
