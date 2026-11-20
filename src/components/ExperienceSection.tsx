@@ -16,7 +16,7 @@ const EXPERIENCE: ExperienceItem[] = [
     role: "AI Engineer Intern",
     org: "Nexa Mobility",
     type: "Internship",
-    period: "Jul 2027 — Oct 2027",
+    period: "Jul 2026 — Oct 2026",
     location: "Bangalore, Karnataka",
     current: true,
     summary:
