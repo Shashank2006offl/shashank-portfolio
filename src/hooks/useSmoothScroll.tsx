@@ -16,8 +16,8 @@ const useSmoothScroll = () => {
             const targetElement = document.querySelector(href);
             if (!targetElement) return;
 
-            // For sticky sections (like #projects), we want a 0px offset so the sticky child begins sticking immediately.
-            // For other sections, we offset by 65px to clear the fixed navigation bar.
+            // Keep project navigation aligned to the section while clearing the fixed
+            // navigation bar for the remaining sections.
             const isProjects = href === '#projects';
             const offset = isProjects ? 0 : 65;
             const elementPosition = targetElement.getBoundingClientRect().top;

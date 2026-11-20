@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Mail, Linkedin, Github } from 'lucide-react';
 import DotMatrix from './DotMatrix';
-import GlobeScene from './GlobeScene';
-import bgImage from './james-harrison-vpOeXr5wmR4-unsplash.jpg';
+import bgImage from './james-harrison-vpOeXr5wmR4-unsplash.webp';
+
+const GlobeScene = lazy(() => import('./GlobeScene'));
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
@@ -60,11 +61,14 @@ const HeroSection = () => {
         backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
+        backgroundAttachment: 'scroll',
       }}
     >
       {/* Background Overlay with Gradient for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40 dark:from-background dark:via-background/95 dark:to-background/70 z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/20 dark:from-background/95 dark:via-background/80 dark:to-background/50 z-0 pointer-events-none"></div>
+
+      {/* Bottom Fade to blend seamlessly into the next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent z-0 pointer-events-none"></div>
 
       <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center z-10 max-w-7xl w-full relative">
 
@@ -78,7 +82,9 @@ const HeroSection = () => {
                 <DotMatrix />
               </div>
               <div className="w-full h-full hidden dark:flex justify-center items-center">
-                <GlobeScene />
+                <Suspense fallback={null}>
+                  <GlobeScene />
+                </Suspense>
               </div>
             </div>
           </div>
@@ -158,7 +164,9 @@ const HeroSection = () => {
               <DotMatrix />
             </div>
             <div className="w-full h-full hidden dark:flex justify-center items-center">
-              <GlobeScene />
+              <Suspense fallback={null}>
+                <GlobeScene />
+              </Suspense>
             </div>
           </div>
         </div>

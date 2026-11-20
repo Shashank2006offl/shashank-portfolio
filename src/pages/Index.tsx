@@ -10,6 +10,7 @@ import AboutSection from '@/components/AboutSection';
 import SkillsSection from '@/components/SkillsSection';
 import RoadmapSection from '@/components/roadmapItems';
 import ProjectsSection from '@/components/ProjectsSection';
+import ExperienceSection from '@/components/ExperienceSection';
 import DesignDecisionsSection from '@/components/DesignDecisionsSection';
 import PublicationsSection from '@/components/PublicationsSection';
 import ContactSection from '@/components/ContactSection';
@@ -50,7 +51,7 @@ const Index = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-background" style={{ overflowX: 'clip' }}>
+    <div className="relative min-h-screen bg-background" style={{ overflowX: 'clip', overflowY: 'visible' }}>
       {/* Code-typing loader screen on initial page load only */}
       {isLoading && (
         <LoadingScreen 
@@ -74,6 +75,7 @@ const Index = () => {
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
+        <ExperienceSection />
         <PublicationsSection />
         <RoadmapSection />
         <DesignDecisionsSection />

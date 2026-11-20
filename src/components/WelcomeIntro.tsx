@@ -3,18 +3,18 @@ import gsap from 'gsap';
 
 // Curated images — each ties to a skill in the portfolio
 const imgs = [
-  'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=85',
-  'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=85',
-  'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=85',
-  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=85',
-  'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=85',
-  'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=85',
-  'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=85',
-  'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=85',
-  'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=800&q=85',
-  'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=85',
-  'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&q=85',
-  'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=85',
+  'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=300&fit=crop&fm=webp&q=72',
+  'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop&fm=webp&q=72',
 ];
 
 const imageRows = Array.from({ length: 5 }, (_, r) =>
