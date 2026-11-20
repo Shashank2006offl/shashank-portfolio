@@ -64,7 +64,7 @@ const ExperienceSection = () => (
               <div
                 className={`experience-card group ml-12 rounded-3xl border p-6 md:ml-0 md:p-8 transition-colors ${
                   item.current
-                    ? "border-primary/45 bg-gradient-to-br from-primary/10 via-card/35 to-card/15 hover:border-primary/70"
+                    ? "border-primary/35 bg-card/25 hover:border-primary/60"
                     : "border-border/60 bg-card/25 hover:border-secondary/50"
                 } ${
                   index % 2 === 0 ? "lg:col-start-1" : "lg:col-start-3"
@@ -89,11 +89,6 @@ const ExperienceSection = () => (
                     </div>
                   </div>
 
-                  {item.current && (
-                    <span className="rounded-full bg-primary px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-primary-foreground">
-                      Current
-                    </span>
-                  )}
                 </div>
 
                 <h3 className="mb-3 text-2xl md:text-3xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors">
@@ -127,7 +122,6 @@ const ExperienceSection = () => (
               </div>
 
               <div className="absolute left-[15px] top-7 z-10 flex h-6 w-6 items-center justify-center rounded-full border-4 border-background bg-primary md:left-[15px] lg:left-1/2 lg:top-8 lg:-translate-x-1/2">
-                {item.current && <span className="absolute h-8 w-8 rounded-full border border-primary/40 animate-ping" />}
               </div>
 
               {index % 2 === 1 && item.current && (
